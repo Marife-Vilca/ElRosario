@@ -1,193 +1,275 @@
 :root {
-  --bg-main: #f0f4f7;
-  --card-bg: #ffffff;
-  --accent-green: #2a9d8f;
-  --accent-purple: #6c5ce7;
-  --accent-cyan: #00b4d8;
-  --text-dark: #1e293b;
-  --text-muted: #94a3b8;
-  --radius-card: 16px;
-  --radius-btn: 8px;
+  --bg-app: #f4f6fb;
+  --surface-card: #ffffff;
+  --primary-purple: #635bff;
+  --primary-purple-light: #f0efff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --check-done: #10b981;
+  
+  --radius-card: 18px;
+  --radius-btn: 12px;
+  --font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
-  background-color: var(--bg-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: var(--text-dark);
-  font-size: 12px;
+  background-color: var(--bg-app);
+  font-family: var(--font-family);
+  color: var(--text-main);
   margin: 0;
-  padding: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
 }
 
+.app-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Header */
 .app-header {
-  background: var(--card-bg);
-  padding: 10px 14px;
+  background: var(--surface-card);
+  padding: 16px 20px;
   border-radius: var(--radius-card);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-light);
 }
 
 .app-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--accent-purple);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-purple);
   margin: 0;
+  letter-spacing: -0.5px;
 }
 
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+.app-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 2px 0 0 0;
 }
 
-.dash-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-card);
-  padding: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  max-height: 85vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.dash-card-title {
+.badge-status {
+  background: var(--primary-purple-light);
+  color: var(--primary-purple);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-  padding-bottom: 4px;
-  border-bottom: 2px solid var(--accent-cyan);
+  padding: 6px 12px;
+  border-radius: 20px;
 }
 
-.scroll-area {
-  overflow-y: auto;
-  padding-right: 2px;
+/* Layout Responsivo (Mobile First) */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* En celular 1 sola columna */
+  gap: 16px;
 }
 
-/* Filas Principales */
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr; /* En tablets/PC 2 columnas */
+  }
+}
+
+/* Tarjetas Principales */
+.dash-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  padding: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-light);
+}
+
+.dash-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-purple-light);
+}
+
+.dash-card-header h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.card-icon {
+  font-size: 1.2rem;
+  color: var(--primary-purple);
+}
+
+/* Filas de Pasos */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .step-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #f8fafc;
-  padding: 6px 8px;
-  border-radius: 10px;
-  margin-bottom: 4px;
-  border: 1px solid #f1f5f9;
-  transition: all 0.2s ease;
+  padding: 12px 14px;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--border-light);
 }
 
 .step-info {
   display: flex;
   align-items: center;
-  gap: 6px;
-  max-width: 75%;
+  gap: 12px;
+  cursor: pointer;
+  flex-grow: 1;
 }
 
 .status-check {
-  width: 14px;
-  height: 14px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  border: 2px solid var(--text-muted);
-  cursor: pointer;
+  border: 2px solid #cbd5e1;
+  background: #ffffff;
   flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
 .step-label {
-  font-size: 0.7rem;
+  font-size: 0.95rem; /* Texto más grande */
   font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: var(--text-main);
 }
 
-/* Bloques de Misterios con Sub-pasos */
-.misterio-box {
-  background: #fafafa;
-  border-left: 2px solid var(--accent-purple);
-  border-radius: 8px;
-  padding: 2px 4px;
-  margin-bottom: 6px;
+/* Tarjeta especial para Misterios dentro de la secuencia */
+.misterio-card {
+  background: #fcfaff;
+  border: 1px solid #e9d5ff;
+  border-radius: var(--radius-btn);
+  padding: 12px;
+  margin-top: 4px;
 }
 
-.header-m {
-  background: transparent;
-  border: none;
-  margin-bottom: 0;
-  padding: 4px;
+.misterio-header {
+  padding-bottom: 8px;
+}
+
+.misterio-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6b21a8;
+}
+
+.sub-steps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0 10px 12px;
 }
 
 .sub-step {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 3px 6px 3px 14px;
-  font-size: 0.65rem;
-  color: var(--text-dark);
-  transition: all 0.2s ease;
-}
-
-/* Botones Delgados */
-.btn-dash {
-  border: none;
-  border-radius: var(--radius-btn);
-  padding: 3px 6px;
-  font-size: 0.62rem;
-  font-weight: 600;
+  gap: 10px;
+  font-size: 0.88rem; /* Texto legible */
+  font-weight: 500;
+  color: var(--text-main);
   cursor: pointer;
 }
 
-.btn-view {
-  background: #e0f2fe;
-  color: #0369a1;
+.misterio-action {
+  margin-top: 4px;
 }
 
-/* Estados Activos (Tachado) */
-.step-item.active, .sub-step.active {
-  opacity: 0.6;
+/* Botones */
+.btn-dash {
+  border: none;
+  background: var(--primary-purple-light);
+  color: var(--primary-purple);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-dash:active {
+  transform: scale(0.97);
+}
+
+/* Estado de Completado (Tachado) */
+.step-item.active, .sub-step.active, .misterio-header.active {
+  opacity: 0.55;
 }
 
 .step-item.active .status-check,
-.sub-step.active .status-check {
-  background: var(--accent-green);
-  border-color: var(--accent-green);
+.sub-step.active .status-check,
+.misterio-header.active .status-check {
+  background: var(--check-done);
+  border-color: var(--check-done);
 }
 
 .step-item.active .step-label,
-.sub-step.active span {
+.sub-step.active span,
+.misterio-header.active .misterio-title {
   text-decoration: line-through;
-  color: var(--text-muted);
 }
 
-/* Columna Derecha */
-.misterio-badge {
-  display: inline-block;
-  font-size: 0.62rem;
+/* Misterios Columna Derecha */
+.misterios-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.misterio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.group-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--accent-purple);
-  background: #f3e8ff;
-  padding: 2px 6px;
-  border-radius: 6px;
-  margin-top: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
   margin-bottom: 4px;
 }
+
+.group-tag span {
+  font-weight: 500;
+  opacity: 0.8;
+  margin-left: 4px;
+}
+
+.tag-gozosos { background: #fef3c7; color: #92400e; }
+.tag-dolorosos { background: #ffe4e6; color: #9f1239; }
+.tag-gloriosos { background: #f3e8ff; color: #6b21a8; }
+.tag-luminosos { background: #e0f2fe; color: #075985; }
 
 .btn-misterio {
   width: 100%;
   text-align: left;
   background: #f8fafc;
-  color: var(--text-dark);
-  border: 1px solid #f1f5f9;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-btn);
-  padding: 4px 6px;
-  font-size: 0.65rem;
-  margin-bottom: 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding: 10px 12px;
+  font-size: 0.88rem; /* Texto claro */
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-misterio:active {
+  background: #e2e8f0;
 }
