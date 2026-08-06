@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santo Rosario Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="app-header">
+        <h1 class="app-title">Santo Rosario</h1>
+        <span class="badge rounded-pill bg-light text-dark border">Progreso Guiado</span>
+    </header>
+
+    <main class="dashboard-grid">
+
+        <!-- COLUMNA IZQUIERDA: PASOS A SEGUIR -->
+        <section class="dash-card">
+            <div class="dash-card-title">Pasos a Seguir</div>
+
+            <div class="scroll-area">
+
+                <!-- Pasos Iniciales -->
+                <div class="step-item" id="step-cruz">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-cruz')"></div>
+                        <span class="step-label">Por la Señal de la Cruz</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://i.pinimg.com/736x/ed/b7/e9/edb7e9e74385388393c5beaa8cd5a294.jpg')">Ver</button>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step-credo">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-credo')"></div>
+                        <span class="step-label">El Credo</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://s3-eu-west-1.amazonaws.com/images-opus-dei/editor/2025/12/Copia%20de%20Your%20Story%20-%20Opus%20Dei20251211111222901264.jpg')">Ver</button>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step-pn-init">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-pn-init')"></div>
+                        <span class="step-label">Padre Nuestro</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjM7yFA5NV1IAluuoqBbcfDfkD4FYvhKA4m3N4_XRpqYN27j6qiOp1BV2K&s=10')">Ver</button>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step-3ave">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-3ave')"></div>
+                        <span class="step-label"> Tres Ave Marías</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScxM9_8ifOzHLu-bgHaTrq8Z4zaM2ydzqwRXpL7yDRjkaMrB0TM7juM6g&s=10')">Ver</button>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step-gloria-init">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-gloria-init')"></div>
+                        <span class="step-label">Gloria</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://i.pinimg.com/736x/ee/fe/6d/eefe6d1fb4dd12a5a1e57b3a38d26552.jpg')">Ver</button>
+                    </div>
+                </div>
+
+                <!-- PRIMER MISTERIO -->
+                <div class="misterio-box">
+                    <div class="step-item header-m" id="m1">
+                        <div class="step-info">
+                            <div class="status-check" onclick="toggleProgress('m1')"></div>
+                            <span class="step-label fw-bold">Primer Misterio</span>
+                        </div>
+                    </div>
+                    <div class="sub-step" id="m1-pn">
+                        <div class="status-check" onclick="toggleProgress('m1-pn')"></div>
+                        <span>Padre Nuestro</span>
+                    </div>
+                    <div class="sub-step" id="m1-ave">
+                        <div class="status-check" onclick="toggleProgress('m1-ave')"></div>
+                        <span>10 Ave Marías</span>
+                    </div>
+                    <div class="sub-step" id="m1-gl">
+                        <div class="status-check" onclick="toggleProgress('m1-gl')"></div>
+                        <span>Gloria</span>
+                        <div class="step-actions">
+                            <button class="btn-dash btn-view"
+                                onclick="openModal('https://i.pinimg.com/736x/ee/fe/6d/eefe6d1fb4dd12a5a1e57b3a38d26552.jpg')">Ver</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEGUNDO MISTERIO -->
+                <div class="misterio-box">
+                    <div class="step-item header-m" id="m2">
+                        <div class="step-info">
+                            <div class="status-check" onclick="toggleProgress('m2')"></div>
+                            <span class="step-label fw-bold">Segundo Misterio</span>
+                        </div>
+                    </div>
+                    <div class="sub-step" id="m2-pn">
+                        <div class="status-check" onclick="toggleProgress('m2-pn')"></div>
+                        <span>Padre Nuestro</span>
+                    </div>
+                    <div class="sub-step" id="m2-ave">
+                        <div class="status-check" onclick="toggleProgress('m2-ave')"></div>
+                        <span>10 Ave Marías</span>
+                    </div>
+                    <div class="sub-step" id="m2-gl">
+                        <div class="status-check" onclick="toggleProgress('m2-gl')"></div>
+                        <span>Gloria</span>
+                        <div class="step-actions">
+                            <button class="btn-dash btn-view"
+                                onclick="openModal('https://i.pinimg.com/736x/ee/fe/6d/eefe6d1fb4dd12a5a1e57b3a38d26552.jpg')">Ver</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TERCER MISTERIO -->
+                <div class="misterio-box">
+                    <div class="step-item header-m" id="m3">
+                        <div class="step-info">
+                            <div class="status-check" onclick="toggleProgress('m3')"></div>
+                            <span class="step-label fw-bold">Tercer Misterio</span>
+                        </div>
+                    </div>
+                    <div class="sub-step" id="m3-pn">
+                        <div class="status-check" onclick="toggleProgress('m3-pn')"></div>
+                        <span>Padre Nuestro</span>
+                    </div>
+                    <div class="sub-step" id="m3-ave">
+                        <div class="status-check" onclick="toggleProgress('m3-ave')"></div>
+                        <span>10 Ave Marías</span>
+                    </div>
+                    <div class="sub-step" id="m3-gl">
+                        <div class="status-check" onclick="toggleProgress('m3-gl')"></div>
+                        <span>Gloria</span>
+                        <div class="step-actions">
+                            <button class="btn-dash btn-view"
+                                onclick="openModal('https://i.pinimg.com/736x/ee/fe/6d/eefe6d1fb4dd12a5a1e57b3a38d26552.jpg')">Ver</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CUARTO MISTERIO -->
+                <div class="misterio-box">
+                    <div class="step-item header-m" id="m4">
+                        <div class="step-info">
+                            <div class="status-check" onclick="toggleProgress('m4')"></div>
+                            <span class="step-label fw-bold">Cuarto Misterio</span>
+                        </div>
+                    </div>
+                    <div class="sub-step" id="m4-pn">
+                        <div class="status-check" onclick="toggleProgress('m4-pn')"></div>
+                        <span>Padre Nuestro</span>
+                    </div>
+                    <div class="sub-step" id="m4-ave">
+                        <div class="status-check" onclick="toggleProgress('m4-ave')"></div>
+                        <span>10 Ave Marías</span>
+                    </div>
+                    <div class="sub-step" id="m4-gl">
+                        <div class="status-check" onclick="toggleProgress('m4-gl')"></div>
+                        <span>Gloria</span>
+                        <div class="step-actions">
+                            <button class="btn-dash btn-view"
+                                onclick="openModal('https://i.pinimg.com/736x/ee/fe/6d/eefe6d1fb4dd12a5a1e57b3a38d26552.jpg')">Ver</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUINTO MISTERIO -->
+                <div class="misterio-box">
+                    <div class="step-item header-m" id="m5">
+                        <div class="step-info">
+                            <div class="status-check" onclick="toggleProgress('m5')"></div>
+                            <span class="step-label fw-bold">Quinto Misterio</span>
+                        </div>
+                    </div>
+                    <div class="sub-step" id="m5-pn">
+                        <div class="status-check" onclick="toggleProgress('m5-pn')"></div>
+                        <span>Padre Nuestro</span>
+                    </div>
+                    <div class="sub-step" id="m5-ave">
+                        <div class="status-check" onclick="toggleProgress('m5-ave')"></div>
+                        <span>10 Ave Marías</span>
+                    </div>
+                    <div class="sub-step" id="m5-gl">
+                        <div class="status-check" onclick="toggleProgress('m5-gl')"></div>
+                        <span>Gloria</span>
+                        <div class="step-actions">
+                            <button class="btn-dash btn-view"
+                                onclick="openModal('https://i.pinimg.com/736x/ee/fe/6d/eefe6d1fb4dd12a5a1e57b3a38d26552.jpg')">Ver</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cierre -->
+                <div class="step-item" id="step-angelus">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-angelus')"></div>
+                        <span class="step-label">El Ángelus</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://imgv2-2-f.scribdassets.com/img/document/381406242/original/865f8465d0/1?v=1')">Ver</button>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step-salve">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-salve')"></div>
+                        <span class="step-label">La Salve</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbOZLe7tLPewlTVAxxHhLKslpHpiu3-4_It-pdrRa1m4xbiItz_5b2y2ML&s=10')">Ver</button>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step-regina">
+                    <div class="step-info">
+                        <div class="status-check" onclick="toggleProgress('step-regina')"></div>
+                        <span class="step-label">Reina del Cielo</span>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-dash btn-view"
+                            onclick="openModal('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcCB5mzyFvFpvith8XAx2M08r2Rg8HiUdKuwTYDGoGhTlpzSrNEZL2EZAk&s=10')">Ver</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- COLUMNA DERECHA: TODOS LOS MISTERIOS -->
+        <section class="dash-card">
+            <div class="dash-card-title">Misterios</div>
+
+            <div class="scroll-area">
+                <!-- Gozosos -->
+                <div>
+                    <span class="misterio-badge">Gozosos (Lun/Sáb)</span>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/1erMisterioG.png')">La Encarnación
+                        del Hijo de Dios</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/2doMisterioG.png')">La Visitación
+                        de Santa Maria a Santa Isabel</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/3erMisterioG.png')">El Nacimiento
+                        del hijo de Dios</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/4toMisterioG.png')">La Presentación
+                        del niño Jesus en el Templo</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/5toMisterioG.png')">La Perdida del Niño
+                        Jesus y su hallazgo en el Templo</button>
+                </div>
+
+                <!-- Dolorosos -->
+                <div>
+                    <span class="misterio-badge">Dolorosos (Mar/Vie)</span>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/1erMisterioD.png')">La Oración
+                        del Señor en el Huerto de Getsemani</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/2doMisterioD.png')">La
+                        Flagelación del señor Jesus</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/3erMisterioD.png')">La Coronación
+                        de Espinas</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/4toMisterioD.png')">El camino al 
+                        calvario llevando la Cruz</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/5toMisterioD.png')">La Crucifixión
+                        y Muerte del Señor</button>
+                </div>
+
+                <!-- Gloriosos -->
+                <div>
+                    <span class="misterio-badge">Gloriosos (Mié/Dom)</span>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/1erMisterioGlo.png')">La
+                        Resurrección del Señor Jesus</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/2doMisterioGlo.png')">La
+                        Ascensión del Señor Jesus</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/3erMisterioGlo.png')">La Venida
+                        del Espíritu Santo</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/4toMisterioGlo.png')">La Asunción
+                        de Santa María</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/5toMisterioGlo.png')">La Coronación
+                        de Santa María</button>
+                </div>
+
+                <!-- Luminosos -->
+                <div>
+                    <span class="misterio-badge">Luminosos (Jueves)</span>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/1erMisterioL.png')">El Bautismo
+                        en el Jordán</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/2doMisterioL.png')">La Autorrevelacion
+                        en las bodas de Caná</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/3erMisterioL.png')">El Anuncio
+                        del Reino de Dios invitado a la conversion</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/4toMisterioL.png')">La
+                        Transfiguración del Señor Jesus</button>
+                    <button class="btn-misterio"
+                        onclick="openModal('img/5toMisterioL.png')">La Institución
+                        de la Eucaristía</button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-body text-center p-3">
+                    <img id="modalImage" src="" class="img-fluid rounded-3 mb-2" alt="Imagen">
+                    <button type="button" class="btn btn-sm btn-secondary w-100" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
